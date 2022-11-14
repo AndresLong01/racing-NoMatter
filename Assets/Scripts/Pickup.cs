@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour
     if (Input.GetKeyDown("space"))
     {
       //&& car canHasItem;
-      if (item == "Brocolli")
+      if (item == "Broccoli")
       {
         StartCoroutine(importedCarSettings.speedBoost(boostTimer));
         item = "";
@@ -48,7 +48,7 @@ public class Pickup : MonoBehaviour
       //TODO: currently softlocked due to Oil not being fully implemented
       if (randomItemId == 0 && canTakeItem)
       {
-        item = "Brocolli";
+        item = "Broccoli";
       }
       else if (canTakeItem)
       {
