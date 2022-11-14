@@ -44,8 +44,8 @@ public class Pickup : MonoBehaviour
     if (other.tag == "Parcel")
     {
       float randomItemId = Random.Range(0, 2);
-      Debug.Log(randomItemId);
 
+      //TODO: currently softlocked due to Oil not being fully implemented
       if (randomItemId == 0 && canTakeItem)
       {
         item = "Brocolli";
