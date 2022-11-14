@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
   //Colliding with objects
-  [SerializeField] float slowDownTimer = 1.5f;
+  [SerializeField] float slowDownTimer = 0.25f;
 
   //Lap Logic
   [SerializeField] int gateCount = 0;
@@ -25,7 +25,8 @@ public class Collision : MonoBehaviour
     importedCar.slowDown();
   }
 
-  void OnCollisionExit2D(Collision2D other) {
+  void OnCollisionExit2D(Collision2D other)
+  {
     StartCoroutine(importedCar.collisionRecovery(slowDownTimer));
   }
 
@@ -48,6 +49,21 @@ public class Collision : MonoBehaviour
     {
       other.gameObject.SetActive(false);
       gateCount++;
+    }
+
+    //TODO: Add speed trap as a tag and also into the scene
+    if (other.tag == "Speed Trap")
+    {
+      importedCar.slowDown();
+    }
+  }
+
+  //TODO: Add speed trap as well
+  void OnTriggerExit2D(Collider2D other)
+  {
+    if (other.tag == "Speed Trap")
+    {
+      StartCoroutine(importedCar.collisionRecovery(slowDownTimer));
     }
   }
 }
