@@ -7,7 +7,6 @@ public class Pickup : MonoBehaviour
   //Car state variables
   [SerializeField] string item;
   [SerializeField] bool canTakeItem = true;
-  [SerializeField] int gateCount = 0;
 
   //settings related to item usage timers
   [SerializeField] int boostTimer = 2;
@@ -22,9 +21,9 @@ public class Pickup : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetKeyDown("space"))
+    if (Input.GetKeyDown("space") && !canTakeItem)
     {
-      //&& car canHasItem;
+      //TODO: add Oil spill functionality
       if (item == "Broccoli")
       {
         StartCoroutine(importedCarSettings.speedBoost(boostTimer));
@@ -32,11 +31,6 @@ public class Pickup : MonoBehaviour
         canTakeItem = true;
       }
     }
-  }
-
-  void OnCollisionEnter2D(Collision2D other)
-  {
-    Debug.Log("Dang");
   }
 
   void OnTriggerEnter2D(Collider2D other)
@@ -57,19 +51,6 @@ public class Pickup : MonoBehaviour
 
       canTakeItem = false;
       StartCoroutine(RespawnTimer(other.gameObject));
-
-    }
-    else if (other.tag == "Finish")
-    {
-      if (gateCount >= 10)
-      {
-        gateCount = 0;
-        Debug.Log("This is the finish line");
-      }
-      else
-      {
-        Debug.Log("You are not prepared");
-      }
     }
   }
 

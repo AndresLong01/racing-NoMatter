@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-  [SerializeField] float steerSpeed = 250f;
+  [SerializeField] float steerSpeed = 300f;
   // try value number 27.5f and steer maybe 325f for higher speeds
-  [SerializeField] float moveSpeed = 12.5f;
-
-  void Start()
-  {
-
-  }
+  // initial value is 17.5f tentatitve
+  [SerializeField] public float moveSpeed = 17.5f;
 
   void Update()
   {
@@ -22,10 +18,20 @@ public class Driver : MonoBehaviour
     transform.Translate(0, speedAmount, 0);
   }
 
+  public void slowDown() {
+    moveSpeed = 7.5f;
+  }
+
   public IEnumerator speedBoost(int boostTimer)
   {
     moveSpeed = 25f;
     yield return new WaitForSeconds(boostTimer);
-    moveSpeed = 12.5f;
+    moveSpeed = 17.5f;
+  }
+
+  public IEnumerator collisionRecovery(float slowDownTimer)
+  {
+    yield return new WaitForSeconds(slowDownTimer);
+    moveSpeed = 17.5f;
   }
 }

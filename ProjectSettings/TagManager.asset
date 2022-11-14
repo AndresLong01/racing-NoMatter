@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Parcel
+  - Gate
   layers:
   - Default
   - TransparentFX
