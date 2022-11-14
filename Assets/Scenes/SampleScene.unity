@@ -10635,7 +10635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steerSpeed: 300
-  moveSpeed: 20
+  moveSpeed: 17.5
 --- !u!61 &1288951805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10760,7 +10760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ce654ec800de146b63868278fdb380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownTimer: 1.5
+  slowDownTimer: 0.25
   gateCount: 0
   lapCount: 1
 --- !u!1 &1305742328
@@ -15808,6 +15808,36 @@ Transform:
   m_Father: {fileID: 1723954845}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!1 &2006236451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006236452}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2006236452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006236451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.624253, y: 15.969559, z: -102.32172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014549345
 GameObject:
   m_ObjectHideFlags: 0
