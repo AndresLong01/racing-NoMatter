@@ -1,22 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour
 {
   //Car state variables
-  [SerializeField] string item;
+  [SerializeField] public string item;
   [SerializeField] bool canTakeItem = true;
 
   //settings related to item usage timers
   [SerializeField] int boostTimer = 2;
 
-  //imported Component for changing the Car's speed
+  //UI related information
+  [SerializeField] Sprite emptyImage;
+  [SerializeField] Sprite broccoliImage;
+  [SerializeField] Sprite oilImage;
+
+  //imported Components
   Driver importedCarSettings;
+  GameObject importedUI;
+  Image imageContainer;
 
   private void Start()
   {
+    importedUI = GameObject.FindGameObjectWithTag("Image");
     importedCarSettings = GetComponent<Driver>();
+    imageContainer = importedUI.GetComponent<Image>();
   }
 
   private void Update()
@@ -27,9 +37,11 @@ public class Pickup : MonoBehaviour
       if (item == "Broccoli")
       {
         StartCoroutine(importedCarSettings.speedBoost(boostTimer));
-        item = "";
-        canTakeItem = true;
       }
+
+      item = "";
+      canTakeItem = true;
+      imageContainer.sprite = emptyImage;
     }
   }
 
@@ -43,10 +55,12 @@ public class Pickup : MonoBehaviour
       if (randomItemId == 0 && canTakeItem)
       {
         item = "Broccoli";
+        imageContainer.sprite = broccoliImage;
       }
       else if (canTakeItem)
       {
         item = "Oil";
+        imageContainer.sprite = oilImage;
       }
 
       canTakeItem = false;
